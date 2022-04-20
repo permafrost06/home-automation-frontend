@@ -2,8 +2,11 @@
   <div>
     <form>
       <div>
-        <input v-model="email" type="text" placeholder="Email" />
-        <input v-model="password" type="password" placeholder="Passowrd" />
+        <p>Email: <input v-model="email" type="text" placeholder="Email" /></p>
+        <p>
+          Password:
+          <input v-model="password" type="password" placeholder="Passowrd" />
+        </p>
       </div>
       <div>
         <button @click="logIn">Log in</button>
