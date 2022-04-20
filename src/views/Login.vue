@@ -2,14 +2,14 @@
   <div>
     <form>
       <div>
-        <p>Email: <input v-model="email" type="text" placeholder="Email" /></p>
+        <p>Email: <input v-model="email" type="email" placeholder="Email" /></p>
         <p>
           Password:
           <input v-model="password" type="password" placeholder="Passowrd" />
         </p>
       </div>
       <div>
-        <button @click="logIn">Log in</button>
+        <button @click="logIn">Log In</button>
       </div>
     </form>
     <p>
