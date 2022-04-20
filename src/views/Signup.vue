@@ -44,7 +44,7 @@ export default defineComponent({
 
       name.value = "";
       phCode.value = "";
-      phone.value = null;
+      phone.value = 0;
       email.value = "";
       password.value = "";
 
