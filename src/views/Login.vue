@@ -28,11 +28,34 @@ export default defineComponent({
     const email = ref("");
     const password = ref("");
 
-    const logIn = () => {
-      console.log(email.value, password.value);
+    const handleLogIn = async () => {
+      const data = {
+        email: email.value,
+        password: password.value,
+      };
+
+      email.value = "";
+      password.value = "";
+
+      try {
+        const res = await fetch("http://localhost:5000/user/userLogin", {
+          method: "POST",
+          cache: "no-cache",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          redirect: "follow",
+          body: JSON.stringify(data),
+        });
+
+        const json = await res.json();
+        console.log(json);
+      } catch (error) {
+        console.error(error);
+      }
     };
 
-    return { email, password, logIn };
+    return { email, password, handleLogIn };
   },
 });
 </script>
