@@ -4,7 +4,7 @@
       <p>Name: <input v-model="name" type="text" /></p>
       <p>
         Phone Code:
-        <select v-model="phoneCode">
+        <select v-model="phCode">
           <option value="+91">+91</option>
         </select>
       </p>
@@ -28,7 +28,7 @@ import { defineComponent, ref } from "vue";
 export default defineComponent({
   setup() {
     const name = ref("");
-    const phoneCode = ref("");
+    const phCode = ref("");
     const phone = ref<number>();
     const email = ref("");
     const password = ref("");
@@ -36,14 +36,14 @@ export default defineComponent({
     const handleSignUp = () => {
       console.log(
         name.value,
-        phoneCode.value,
+        phCode.value,
         phone.value,
         email.value,
         password.value
       );
     };
 
-    return { name, phoneCode, phone, email, password, handleSignUp };
+    return { name, phCode, phone, email, password, handleSignUp };
   },
 });
 </script>
