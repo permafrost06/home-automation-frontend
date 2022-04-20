@@ -9,7 +9,7 @@
         </p>
       </div>
       <div>
-        <button @click="logIn">Log In</button>
+        <button @click.stop.prevent="handleLogIn">Log In</button>
       </div>
     </form>
     <p>
