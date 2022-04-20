@@ -33,14 +33,37 @@ export default defineComponent({
     const email = ref("");
     const password = ref("");
 
-    const handleSignUp = () => {
-      console.log(
-        name.value,
-        phCode.value,
-        phone.value,
-        email.value,
-        password.value
-      );
+    const handleSignUp = async () => {
+      const data = {
+        name: name.value,
+        phCode: phCode.value,
+        phone: phone.value,
+        email: email.value,
+        password: password.value,
+      };
+
+      name.value = "";
+      phCode.value = "";
+      phone.value = null;
+      email.value = "";
+      password.value = "";
+
+      try {
+        const res = await fetch("http://localhost:5000/user/userCreate", {
+          method: "POST",
+          cache: "no-cache",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          redirect: "follow",
+          body: JSON.stringify(data),
+        });
+
+        const json = await res.json();
+        console.log(json);
+      } catch (error) {
+        console.error(error);
+      }
     };
 
     return { name, phCode, phone, email, password, handleSignUp };
