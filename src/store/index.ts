@@ -15,6 +15,7 @@ export const useDevicesStore = defineStore("devices", {
       if (!device) return;
 
       device.isDeviceOn = false;
+      device.usage = ~~(Math.random() * 100);
 
       this.devices.push(device);
     },
@@ -37,6 +38,7 @@ export const useDevicesStore = defineStore("devices", {
       if (index === -1) return;
 
       this.devices[index].isDeviceOn = true;
+      this.devices[index].lastTurnedOn = new Date();
     },
 
     turnDeviceOff(id: string) {
@@ -45,6 +47,7 @@ export const useDevicesStore = defineStore("devices", {
       if (index === -1) return;
 
       this.devices[index].isDeviceOn = false;
+      this.devices[index].lastTurnedOff = new Date();
     },
   },
 });
