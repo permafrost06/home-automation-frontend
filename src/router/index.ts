@@ -20,9 +20,9 @@ const router = createRouter({
       component: () => import("../views/DashboardView.vue"),
     },
     {
-      path: "/settings",
-      name: "Settings",
-      component: () => import("../views/SettingsView.vue"),
+      path: "/add-device",
+      name: "Add Device",
+      component: () => import("../views/AddDeviceView.vue"),
     },
   ],
 });
