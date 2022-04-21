@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const email = ref("");
 const password = ref("");
@@ -9,9 +12,6 @@ const handleLogIn = async () => {
     email: email.value,
     password: password.value,
   };
-
-  email.value = "";
-  password.value = "";
 
   try {
     const res = await fetch("http://localhost:5000/user/userLogin", {
@@ -25,10 +25,15 @@ const handleLogIn = async () => {
     });
 
     const json = await res.json();
-    console.log(json);
+    if (json.data.messages === "Login success.") {
+      router.push({ name: "Dashboard" });
+    }
   } catch (error) {
     console.error(error);
   }
+
+  email.value = "";
+  password.value = "";
 };
 </script>
 

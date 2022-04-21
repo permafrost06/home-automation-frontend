@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
 const name = ref("");
 const phCode = ref("");
 const phone = ref<number>();
@@ -15,12 +19,6 @@ const handleSignUp = async () => {
     password: password.value,
   };
 
-  name.value = "";
-  phCode.value = "";
-  phone.value = 0;
-  email.value = "";
-  password.value = "";
-
   try {
     const res = await fetch("http://localhost:5000/user/userCreate", {
       method: "POST",
@@ -33,10 +31,19 @@ const handleSignUp = async () => {
     });
 
     const json = await res.json();
-    console.log(json);
+
+    if (json.message === "Data added successfully") {
+      router.push({ name: "Login" });
+    }
   } catch (error) {
     console.error(error);
   }
+
+  name.value = "";
+  phCode.value = "";
+  phone.value = 0;
+  email.value = "";
+  password.value = "";
 };
 </script>
 
