@@ -38,7 +38,7 @@ const handleLogIn = async () => {
 </script>
 
 <template>
-  <div class="login">
+  <div class="container">
     <div class="form-holder">
       <h1>Login</h1>
       <form>
@@ -65,8 +65,7 @@ const handleLogIn = async () => {
 </template>
 
 <style lang="scss">
-.login,
-.signup {
+.container {
   height: 100vh;
   width: 30rem;
 
@@ -80,7 +79,7 @@ const handleLogIn = async () => {
 .form-holder {
   width: auto;
 
-  padding: 1rem 3rem;
+  padding: 1rem 2rem;
   margin-inline: auto;
 
   display: flex;

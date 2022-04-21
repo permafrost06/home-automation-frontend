@@ -33,7 +33,7 @@ const handleSignUp = async () => {
 </script>
 
 <template>
-  <div class="signup">
+  <div class="container">
     <div class="form-holder">
       <h1>Registration</h1>
       <form>
