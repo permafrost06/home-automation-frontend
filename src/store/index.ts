@@ -49,5 +49,13 @@ export const useDevicesStore = defineStore("devices", {
       this.devices[index].isDeviceOn = false;
       this.devices[index].lastTurnedOff = new Date();
     },
+
+    getDeviceByID(id: string) {
+      const index = this.findIndexById(id);
+
+      if (index === -1) return;
+
+      return this.devices[index];
+    },
   },
 });
