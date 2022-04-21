@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import type { Device } from "@/models/Device.model";
+import type { Device } from "@/models/device.model";
 
 export type RootState = {
   devices: Device[];
