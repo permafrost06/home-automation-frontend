@@ -11,6 +11,8 @@ const router = useRouter();
 const newDevice = ref({} as Device);
 
 const addDevice = () => {
+  if (!newDevice.value.name || !newDevice.value.type) return;
+
   newDevice.value.id = uuidv4();
 
   devicesStore.createNewDevice(newDevice.value);
@@ -19,23 +21,109 @@ const addDevice = () => {
 
   router.push({ name: "Dashboard" });
 };
+
+const setDeviceType = (type: "television" | "fridge" | "fan" | "aircon") => {
+  newDevice.value.type = type;
+};
 </script>
 
 <template>
-  <div>
-    <router-link :to="{ name: 'Dashboard' }">Go to Dashboard</router-link>
-    <form>
-      <p>Device name: <input type="text" v-model="newDevice.name" /></p>
-      <p>
-        Device type:
-        <select v-model="newDevice.type">
-          <option value="television">Television</option>
-          <option value="fridge">Refridgerator</option>
-          <option value="aircon">Air Conditioner</option>
-          <option value="fan">Ceiling Fan</option>
-        </select>
-      </p>
-      <button @click.stop.prevent="addDevice">Add Device</button>
-    </form>
+  <div class="container">
+    <div class="form-holder">
+      <h1>Add New Device</h1>
+      <form>
+        <div class="fields-holder">
+          <div>Device name: <input type="text" v-model="newDevice.name" /></div>
+          <div class="device-type">
+            <div class="types-holder">
+              <div>
+                <img
+                  :class="{ selected: newDevice.type == 'aircon' }"
+                  @click="setDeviceType('aircon')"
+                  src="@/assets/aircon-on.svg"
+                  alt="Air Conditioner"
+                />
+              </div>
+              <div>
+                <img
+                  :class="{ selected: newDevice.type == 'fan' }"
+                  @click="setDeviceType('fan')"
+                  src="@/assets/fan-on.svg"
+                  alt="Ceiling Fan"
+                />
+              </div>
+              <div>
+                <img
+                  :class="{ selected: newDevice.type == 'fridge' }"
+                  @click="setDeviceType('fridge')"
+                  src="@/assets/fridge-on.svg"
+                  alt="Refridgerator"
+                />
+              </div>
+              <div>
+                <img
+                  :class="{ selected: newDevice.type == 'television' }"
+                  @click="setDeviceType('television')"
+                  src="@/assets/tv-on.svg"
+                  alt="Television"
+                />
+              </div>
+            </div>
+            <div style="text-align: center">
+              Device type:
+              <template v-if="newDevice.type == 'television'"
+                >Television</template
+              >
+              <template v-if="newDevice.type == 'fridge'"
+                >Refridgerator</template
+              >
+              <template v-if="newDevice.type == 'aircon'"
+                >Air Conditioner</template
+              >
+              <template v-if="newDevice.type == 'fan'">Ceiling Fan</template>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button @click.stop.prevent="addDevice">Add Device</button>
+          <router-link class="back-link" :to="{ name: 'Dashboard' }">
+            <button class="cancel">Cancel</button>
+          </router-link>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
+
+<style lang="scss">
+.types-holder {
+  display: flex;
+
+  margin: 0.5rem 0;
+
+  flex-wrap: wrap;
+
+  & > div {
+    flex: 1 1 100px;
+    display: flex;
+    justify-content: center;
+  }
+
+  img {
+    max-width: 100px;
+    margin-inline: auto;
+
+    padding: 0.65rem;
+
+    cursor: pointer;
+
+    &:hover {
+      background: var(--color-light-2);
+    }
+
+    &.selected {
+      background: var(--color-light-2);
+    }
+  }
+}
+</style>
