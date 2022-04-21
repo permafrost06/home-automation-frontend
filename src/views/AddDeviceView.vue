@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDevicesStore } from "@/store/index";
-import type { Device } from "@/models/Device.model";
+import type { Device } from "@/models/device.model";
 import { v4 as uuidv4 } from "uuid";
 import { ref } from "vue";
 import { useRouter } from "vue-router";

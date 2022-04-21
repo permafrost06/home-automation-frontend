@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDevicesStore } from "@/store";
-import type { Device } from "@/models/Device.model";
+import type { Device } from "@/models/device.model";
 
 const devicesStore = useDevicesStore();
 
