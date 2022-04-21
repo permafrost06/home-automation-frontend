@@ -38,8 +38,6 @@ const handleSignUp = async () => {
     console.error(error);
   }
 };
-
-return { name, phCode, phone, email, password, handleSignUp };
 </script>
 
 <template>
