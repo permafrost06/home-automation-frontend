@@ -30,7 +30,9 @@ const addDevice = () => {
         Device type:
         <select v-model="newDevice.type">
           <option value="television">Television</option>
-          <option value="fridge">Fridge</option>
+          <option value="fridge">Refridgerator</option>
+          <option value="aircon">Air Conditioner</option>
+          <option value="fan">Ceiling Fan</option>
         </select>
       </p>
       <button @click.stop.prevent="addDevice">Add Device</button>
