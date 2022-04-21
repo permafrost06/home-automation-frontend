@@ -59,6 +59,18 @@ button {
   font-size: 1.25rem;
   margin: 0.5rem auto;
   border-radius: 0.5rem;
+  cursor: pointer;
+
+  &.cancel {
+    color: var(--color-dark-2);
+    border: 1px solid var(--color-dark-2);
+    background-color: var(--color-light-1);
+  }
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
 }
 
 @media (max-width: 428px) {
