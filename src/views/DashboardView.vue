@@ -10,6 +10,9 @@ const store = useDevicesStore();
     <div>
       <router-link :to="{ name: 'Add Device' }">Add new device</router-link>
     </div>
+    <div>
+      <router-link :to="{ name: 'Details' }">See device details</router-link>
+    </div>
     <div v-for="device in store.devices" :key="device.id">
       <p>{{ device.name }}</p>
       <p>{{ device.type }}</p>
