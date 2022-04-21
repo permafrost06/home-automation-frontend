@@ -1,24 +1,13 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import type { UserDetails } from "@/models/userDetails.model";
 
 const router = useRouter();
 
-const name = ref("");
-const phCode = ref("");
-const phone = ref<number>();
-const email = ref("");
-const password = ref("");
+const newUser = ref({} as UserDetails);
 
 const handleSignUp = async () => {
-  const data = {
-    name: name.value,
-    phCode: phCode.value,
-    phone: phone.value,
-    email: email.value,
-    password: password.value,
-  };
-
   try {
     const res = await fetch("http://localhost:5000/user/userCreate", {
       method: "POST",
@@ -27,7 +16,7 @@ const handleSignUp = async () => {
         "Content-Type": "application/json",
       },
       redirect: "follow",
-      body: JSON.stringify(data),
+      body: JSON.stringify(newUser.value),
     });
 
     const json = await res.json();
@@ -39,27 +28,18 @@ const handleSignUp = async () => {
     console.error(error);
   }
 
-  name.value = "";
-  phCode.value = "";
-  phone.value = 0;
-  email.value = "";
-  password.value = "";
+  newUser.value = {} as UserDetails;
 };
 </script>
 
 <template>
   <div>
     <form>
-      <p>Name: <input v-model="name" type="text" /></p>
-      <p>
-        Phone Code:
-        <select v-model="phCode">
-          <option value="+91">+91</option>
-        </select>
-      </p>
-      <p>Phone: <input v-model="phone" type="number" /></p>
-      <p>Email: <input v-model="email" type="email" /></p>
-      <p>Password: <input v-model="password" type="password" /></p>
+      <p>Name: <input v-model="newUser.name" type="text" /></p>
+      <p>Phone Code: <input v-model="newUser.phCode" type="text" /></p>
+      <p>Phone: <input v-model="newUser.phone" type="text" /></p>
+      <p>Email: <input v-model="newUser.email" type="email" /></p>
+      <p>Password: <input v-model="newUser.password" type="password" /></p>
       <div>
         <button @click.stop.prevent="handleSignUp">Sign Up</button>
       </div>
