@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useDevicesStore } from "@/store/index";
+import DeviceComponent from "../components/DeviceComponent.vue";
 
 const store = useDevicesStore();
 
@@ -29,21 +30,49 @@ if (!store.devices.length) {
 </script>
 
 <template>
-  <div>
-    Dashboard
-    <div>
-      <router-link :to="{ name: 'Add Device' }">Add new device</router-link>
+  <div class="container">
+    <h1 style="color: var(--color-light-1)">Dashboard</h1>
+    <div class="devices-container">
+      <template v-for="device in store.devices" :key="device.id">
+        <DeviceComponent :device="device" />
+      </template>
     </div>
     <div>
-      <router-link :to="{ name: 'Details' }">See device details</router-link>
-    </div>
-    <div v-for="device in store.devices" :key="device.id">
-      <p>{{ device.name }}</p>
-      <p>{{ device.type }}</p>
-      <p v-if="device.isDeviceOn">Device is on</p>
-      <p v-else>Device is off</p>
-      <button @click="store.turnDeviceOn(device.id)">Turn on</button>
-      <button @click="store.turnDeviceOff(device.id)">Turn off</button>
+      <router-link :to="{ name: 'Add Device' }"
+        ><button>Add new device</button></router-link
+      >
+      <router-link :to="{ name: 'Details' }"
+        ><button>See device details</button></router-link
+      >
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.container {
+  display: block;
+  text-align: center;
+
+  width: 90vw;
+}
+.devices-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+
+  margin-inline: auto;
+
+  width: 80vw;
+
+  background: var(--color-dark-1);
+
+  padding: 1.5rem 0;
+
+  border-radius: 1rem;
+}
+
+button {
+  margin: 1rem;
+}
+</style>
