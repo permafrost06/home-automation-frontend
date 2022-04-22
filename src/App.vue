@@ -36,11 +36,6 @@ body {
   padding: 0;
 }
 
-#app {
-  height: 100vh;
-  width: 100vw;
-}
-
 input {
   font-size: 1.25rem;
   border: 1px solid var(--color-light-3);
