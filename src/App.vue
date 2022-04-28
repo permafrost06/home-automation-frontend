@@ -99,7 +99,7 @@ a {
 }
 
 .container-holder {
-  margin-top: 5.3rem;
+  margin-top: 15vh;
   margin-left: 13.6rem;
 }
 
@@ -140,6 +140,8 @@ header {
   top: 0;
   left: 0;
   right: 0;
+
+  height: 15vh;
 
   text-align: center;
 
