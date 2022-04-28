@@ -85,4 +85,8 @@ const readableTime = (time: Date | undefined) => {
   font-weight: 700;
   font-size: 1.2rem;
 }
+
+.table-container {
+  padding-top: 3rem;
+}
 </style>
