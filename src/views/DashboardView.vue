@@ -51,6 +51,7 @@ if (!store.devices.length) {
   text-align: center;
 
   width: auto;
+  height: 80vh;
 }
 .devices-container {
   display: flex;
@@ -62,7 +63,7 @@ if (!store.devices.length) {
 
   width: 80vw;
 
-  background: var(--color-dark-1);
+  // background: var(--color-dark-1);
 
   padding: 1.5rem 0;
 
