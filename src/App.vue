@@ -1,9 +1,35 @@
 <script setup lang="ts">
-import { RouterView } from "vue-router";
+import { ref } from "vue";
+import { RouterView, useRoute, useRouter } from "vue-router";
+
+const route = useRoute();
+const router = useRouter();
+const hideNav = ref(true);
+
+router.afterEach(() => {
+  if (route.name == "Login" || route.name == "Signup") hideNav.value = true;
+  else hideNav.value = false;
+});
 </script>
 
 <template>
-  <RouterView />
+  <div>
+    <nav :class="{ hidden: hideNav }">
+      <ul>
+        <router-link :to="{ name: 'Add Device' }"
+          ><li>Add device</li></router-link
+        >
+        <router-link :to="{ name: 'Dashboard' }"
+          ><li>Current connected devices</li></router-link
+        >
+        <router-link :to="{ name: 'Details' }"
+          ><li>Device usage details</li></router-link
+        >
+        <router-link to="/"><li>Logout</li></router-link>
+      </ul>
+    </nav>
+    <RouterView />
+  </div>
 </template>
 
 <style lang="scss">
@@ -70,5 +96,37 @@ a {
   input {
     font-size: 1rem;
   }
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  padding-top: 3rem;
+
+  background-color: var(--color-dark-2);
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding: 1rem;
+      margin: 0.5rem 0;
+
+      color: var(--color-light-1);
+
+      &:hover {
+        background-color: var(--color-dark-3);
+      }
+    }
+  }
+}
+
+.hidden {
+  display: none;
 }
 </style>
