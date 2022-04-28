@@ -26,7 +26,7 @@ const handleLogIn = async () => {
 
     const json = await res.json();
     if (json.data.messages === "Login success.") {
-      router.push({ name: "Dashboard" });
+      router.push({ name: "Home" });
     }
   } catch (error) {
     console.error(error);
