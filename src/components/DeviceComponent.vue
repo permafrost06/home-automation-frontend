@@ -50,7 +50,7 @@ const hover = ref(false);
 .device-container {
   display: inline-block;
 
-  max-width: 300px;
+  max-width: 200px;
 
   color: var(--color-light-1);
   background: var(--color-light-1);
@@ -67,6 +67,7 @@ const hover = ref(false);
   position: absolute;
   cursor: pointer;
   background: rgba(0, 0, 0, 0.66);
+  max-width: 133px;
 
   img {
     width: 100%;
@@ -75,5 +76,9 @@ const hover = ref(false);
 
 .device-state {
   font-weight: 700;
+}
+
+h2 {
+  font-size: 1rem;
 }
 </style>
