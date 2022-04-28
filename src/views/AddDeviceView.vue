@@ -30,6 +30,14 @@ const addDevice = () => {
 const setDeviceType = (type: "television" | "fridge" | "fan" | "aircon") => {
   newDevice.value.type = type;
 };
+
+const scanned = ref(false);
+
+const scanForDevices = () => {
+  setTimeout(() => {
+    scanned.value = true;
+  }, 2000);
+};
 </script>
 
 <template>
@@ -45,7 +53,7 @@ const setDeviceType = (type: "television" | "fridge" | "fan" | "aircon") => {
             <div>
               Device name: <input type="text" v-model="newDevice.name" />
             </div>
-            <div class="device-type">
+            <div :class="['device-type', { hidden: !scanned }]">
               <div class="types-holder">
                 <div>
                   <img
@@ -94,9 +102,17 @@ const setDeviceType = (type: "television" | "fridge" | "fan" | "aircon") => {
                 <template v-if="newDevice.type == 'fan'">Ceiling Fan</template>
               </div>
             </div>
+            <button
+              :class="['cancel', { hidden: scanned }]"
+              @click.stop.prevent="scanForDevices"
+            >
+              Scan for devices
+            </button>
           </div>
           <div>
-            <button @click.stop.prevent="addDevice">Add Device</button>
+            <button :disabled="!scanned" @click.stop.prevent="addDevice">
+              Add Device
+            </button>
           </div>
         </form>
       </div>
@@ -112,6 +128,10 @@ const setDeviceType = (type: "television" | "fridge" | "fan" | "aircon") => {
 }
 .container {
   height: 85vh;
+}
+
+.hidden {
+  display: none;
 }
 
 .types-holder {
@@ -143,5 +163,9 @@ const setDeviceType = (type: "television" | "fridge" | "fan" | "aircon") => {
       background: var(--color-light-2);
     }
   }
+}
+
+button:disabled {
+  color: var(--color-med-1);
 }
 </style>
