@@ -57,7 +57,6 @@ const hover = ref(false);
 
   text-align: center;
 
-  border: 1px solid var(--color-dark-2);
   border-radius: 1rem;
 
   padding: 1rem 2rem;
