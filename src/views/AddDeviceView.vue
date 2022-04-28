@@ -28,69 +28,76 @@ const setDeviceType = (type: "television" | "fridge" | "fan" | "aircon") => {
 </script>
 
 <template>
-  <div class="container">
-    <div class="form-holder">
-      <h1>Add New Device</h1>
-      <form>
-        <div class="fields-holder">
-          <div>Device name: <input type="text" v-model="newDevice.name" /></div>
-          <div class="device-type">
-            <div class="types-holder">
-              <div>
-                <img
-                  :class="{ selected: newDevice.type == 'aircon' }"
-                  @click="setDeviceType('aircon')"
-                  src="@/assets/aircon-on.svg"
-                  alt="Air Conditioner"
-                />
-              </div>
-              <div>
-                <img
-                  :class="{ selected: newDevice.type == 'fan' }"
-                  @click="setDeviceType('fan')"
-                  src="@/assets/fan-on.svg"
-                  alt="Ceiling Fan"
-                />
-              </div>
-              <div>
-                <img
-                  :class="{ selected: newDevice.type == 'fridge' }"
-                  @click="setDeviceType('fridge')"
-                  src="@/assets/fridge-on.svg"
-                  alt="Refridgerator"
-                />
-              </div>
-              <div>
-                <img
-                  :class="{ selected: newDevice.type == 'television' }"
-                  @click="setDeviceType('television')"
-                  src="@/assets/tv-on.svg"
-                  alt="Television"
-                />
-              </div>
+  <header>
+    <h1>Add New Device</h1>
+    <p>username</p>
+  </header>
+  <div class="container-holder">
+    <div class="container">
+      <div class="form-holder">
+        <form>
+          <div class="fields-holder">
+            <div>
+              Device name: <input type="text" v-model="newDevice.name" />
             </div>
-            <div style="text-align: center">
-              Device type:
-              <template v-if="newDevice.type == 'television'"
-                >Television</template
-              >
-              <template v-if="newDevice.type == 'fridge'"
-                >Refridgerator</template
-              >
-              <template v-if="newDevice.type == 'aircon'"
-                >Air Conditioner</template
-              >
-              <template v-if="newDevice.type == 'fan'">Ceiling Fan</template>
+            <div class="device-type">
+              <div class="types-holder">
+                <div>
+                  <img
+                    :class="{ selected: newDevice.type == 'aircon' }"
+                    @click="setDeviceType('aircon')"
+                    src="@/assets/aircon-on.svg"
+                    alt="Air Conditioner"
+                  />
+                </div>
+                <div>
+                  <img
+                    :class="{ selected: newDevice.type == 'fan' }"
+                    @click="setDeviceType('fan')"
+                    src="@/assets/fan-on.svg"
+                    alt="Ceiling Fan"
+                  />
+                </div>
+                <div>
+                  <img
+                    :class="{ selected: newDevice.type == 'fridge' }"
+                    @click="setDeviceType('fridge')"
+                    src="@/assets/fridge-on.svg"
+                    alt="Refridgerator"
+                  />
+                </div>
+                <div>
+                  <img
+                    :class="{ selected: newDevice.type == 'television' }"
+                    @click="setDeviceType('television')"
+                    src="@/assets/tv-on.svg"
+                    alt="Television"
+                  />
+                </div>
+              </div>
+              <div style="text-align: center">
+                Device type:
+                <template v-if="newDevice.type == 'television'"
+                  >Television</template
+                >
+                <template v-if="newDevice.type == 'fridge'"
+                  >Refridgerator</template
+                >
+                <template v-if="newDevice.type == 'aircon'"
+                  >Air Conditioner</template
+                >
+                <template v-if="newDevice.type == 'fan'">Ceiling Fan</template>
+              </div>
             </div>
           </div>
-        </div>
-        <div>
-          <button @click.stop.prevent="addDevice">Add Device</button>
-          <router-link class="back-link" :to="{ name: 'Dashboard' }">
-            <button class="cancel">Cancel</button>
-          </router-link>
-        </div>
-      </form>
+          <div>
+            <button @click.stop.prevent="addDevice">Add Device</button>
+            <router-link class="back-link" :to="{ name: 'Dashboard' }">
+              <button class="cancel">Cancel</button>
+            </router-link>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </template>

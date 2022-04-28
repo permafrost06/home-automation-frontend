@@ -13,26 +13,33 @@ const readableTime = (time: Date | undefined) => {
 </script>
 
 <template>
-  <div class="table-container">
-    <div class="table">
-      <h1 style="color: var(--color-light-1)">Devices</h1>
-      <div class="cells">
-        <div class="row header">
-          <div class="col col-1">Device Name</div>
-          <div class="col col-2">Last turned on</div>
-          <div class="col col-3">Last turned off</div>
-          <div class="col col-4">Usage</div>
+  <header>
+    <h1>Device usage details</h1>
+    <p>username</p>
+  </header>
+  <div class="container-holder">
+    <div class="table-container">
+      <div class="table">
+        <div class="cells">
+          <div class="row header">
+            <div class="col col-1">Device Name</div>
+            <div class="col col-2">Last turned on</div>
+            <div class="col col-3">Last turned off</div>
+            <div class="col col-4">Usage</div>
+          </div>
+          <div class="row" v-for="device in devices" :key="device.id">
+            <div class="col col-1">{{ device.name }}</div>
+            <div class="col col-2">{{ readableTime(device.lastTurnedOn) }}</div>
+            <div class="col col-3">
+              {{ readableTime(device.lastTurnedOff) }}
+            </div>
+            <div class="col col-4">{{ device.usage }} units</div>
+          </div>
         </div>
-        <div class="row" v-for="device in devices" :key="device.id">
-          <div class="col col-1">{{ device.name }}</div>
-          <div class="col col-2">{{ readableTime(device.lastTurnedOn) }}</div>
-          <div class="col col-3">{{ readableTime(device.lastTurnedOff) }}</div>
-          <div class="col col-4">{{ device.usage }} units</div>
-        </div>
+        <router-link style="text-align: center" :to="{ name: 'Dashboard' }">
+          <button>Go to Dashboard</button>
+        </router-link>
       </div>
-      <router-link style="text-align: center" :to="{ name: 'Dashboard' }">
-        <button>Go to Dashboard</button>
-      </router-link>
     </div>
   </div>
 </template>

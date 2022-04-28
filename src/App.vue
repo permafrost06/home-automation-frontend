@@ -98,13 +98,18 @@ a {
   }
 }
 
+.container-holder {
+  margin-top: 5.3rem;
+  margin-left: 13.6rem;
+}
+
 nav {
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
 
-  padding-top: 3rem;
+  padding-top: 5rem;
 
   background-color: var(--color-dark-2);
 
@@ -128,5 +133,33 @@ nav {
 
 .hidden {
   display: none;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  text-align: center;
+
+  z-index: 50;
+
+  background-color: var(--color-dark-2);
+
+  h1 {
+    color: var(--color-light-1);
+  }
+
+  p {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    color: var(--color-light-1);
+
+    padding: 1rem;
+    padding-right: 2rem;
+  }
 }
 </style>

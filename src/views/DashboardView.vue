@@ -30,20 +30,25 @@ const store = useDevicesStore();
 </script>
 
 <template>
-  <div class="container">
-    <h1 style="color: var(--color-light-1)">Dashboard</h1>
-    <div class="devices-container">
-      <template v-for="device in store.devices" :key="device.id">
-        <DeviceComponent :device="device" />
-      </template>
-    </div>
-    <div>
-      <router-link :to="{ name: 'Add Device' }"
-        ><button>Add new device</button></router-link
-      >
-      <router-link :to="{ name: 'Details' }"
-        ><button>See device details</button></router-link
-      >
+  <header>
+    <h1>Dashboard</h1>
+    <p>username</p>
+  </header>
+  <div class="container-holder">
+    <div class="container">
+      <div class="devices-container">
+        <template v-for="device in store.devices" :key="device.id">
+          <DeviceComponent :device="device" />
+        </template>
+      </div>
+      <div>
+        <router-link :to="{ name: 'Add Device' }"
+          ><button>Add new device</button></router-link
+        >
+        <router-link :to="{ name: 'Details' }"
+          ><button>See device details</button></router-link
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -53,7 +58,7 @@ const store = useDevicesStore();
   display: block;
   text-align: center;
 
-  width: 90vw;
+  width: auto;
 }
 .devices-container {
   display: flex;
