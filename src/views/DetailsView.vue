@@ -36,9 +36,6 @@ const readableTime = (time: Date | undefined) => {
             <div class="col col-4">{{ device.usage }} units</div>
           </div>
         </div>
-        <router-link style="text-align: center" :to="{ name: 'Dashboard' }">
-          <button>Go to Dashboard</button>
-        </router-link>
       </div>
     </div>
   </div>

@@ -92,9 +92,6 @@ const setDeviceType = (type: "television" | "fridge" | "fan" | "aircon") => {
           </div>
           <div>
             <button @click.stop.prevent="addDevice">Add Device</button>
-            <router-link class="back-link" :to="{ name: 'Dashboard' }">
-              <button class="cancel">Cancel</button>
-            </router-link>
           </div>
         </form>
       </div>
