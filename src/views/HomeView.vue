@@ -16,9 +16,15 @@
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+.container-holder {
+  height: 85vh;
+
+  display: flex;
+  align-items: center;
+}
+
 .text-container {
-  margin-top: 15rem;
   margin-inline: auto;
   padding: 1rem;
 
