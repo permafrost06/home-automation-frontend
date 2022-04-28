@@ -11,28 +11,28 @@ const username = ref(user.username);
 const store = useDevicesStore();
 
 // debug mock data automatically generated
-if (!store.devices.length) {
-  store.createNewDevice({
-    id: "1",
-    name: "LivingRoom TV",
-    type: "television",
-  });
-  store.createNewDevice({
-    id: "2",
-    name: "Kitchen Fridge",
-    type: "fridge",
-  });
-  store.createNewDevice({
-    id: "3",
-    name: "Bedroom AC",
-    type: "aircon",
-  });
-  store.createNewDevice({
-    id: "4",
-    name: "Guest Room Fan",
-    type: "fan",
-  });
-}
+// if (!store.devices.length) {
+//   store.createNewDevice({
+//     id: "1",
+//     name: "LivingRoom TV",
+//     type: "television",
+//   });
+//   store.createNewDevice({
+//     id: "2",
+//     name: "Kitchen Fridge",
+//     type: "fridge",
+//   });
+//   store.createNewDevice({
+//     id: "3",
+//     name: "Bedroom AC",
+//     type: "aircon",
+//   });
+//   store.createNewDevice({
+//     id: "4",
+//     name: "Guest Room Fan",
+//     type: "fan",
+//   });
+// }
 </script>
 
 <template>
