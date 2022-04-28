@@ -100,8 +100,13 @@ const setDeviceType = (type: "television" | "fridge" | "fan" | "aircon") => {
 </template>
 
 <style lang="scss" scoped>
+.container-holder {
+  background: url("@/assets/bg/photo1.jpg") rgba(0, 0, 0, 0.7);
+  background-size: cover;
+  background-blend-mode: multiply;
+}
 .container {
-  height: 80vh;
+  height: 85vh;
 }
 
 .types-holder {

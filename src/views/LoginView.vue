@@ -64,4 +64,11 @@ const handleLogIn = async () => {
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.container {
+  background: url("@/assets/bg/photo5.jpg") rgba(0, 0, 0, 0.7);
+  background-size: cover;
+  background-blend-mode: multiply;
+  width: 100vw;
+}
+</style>

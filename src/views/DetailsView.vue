@@ -41,7 +41,12 @@ const readableTime = (time: Date | undefined) => {
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.container-holder {
+  background: url("@/assets/bg/photo3.png") rgba(0, 0, 0, 0.7);
+  background-size: cover;
+  background-blend-mode: multiply;
+}
 .table {
   width: 37rem;
   margin-inline: auto;
@@ -88,5 +93,6 @@ const readableTime = (time: Date | undefined) => {
 
 .table-container {
   padding-top: 3rem;
+  height: 85vh;
 }
 </style>

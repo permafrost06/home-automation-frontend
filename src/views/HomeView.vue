@@ -18,6 +18,9 @@
 
 <style scoped lang="scss">
 .container-holder {
+  background: url("@/assets/bg/photo4.jpg") rgba(0, 0, 0, 0.7);
+  background-size: cover;
+  background-blend-mode: multiply;
   height: 85vh;
 
   display: flex;

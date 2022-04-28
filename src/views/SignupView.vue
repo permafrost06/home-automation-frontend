@@ -82,3 +82,12 @@ const handleSignUp = async () => {
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.container {
+  background: url("@/assets/bg/photo6.jpg") rgba(0, 0, 0, 0.7);
+  background-size: cover;
+  background-blend-mode: multiply;
+  width: 100vw;
+}
+</style>

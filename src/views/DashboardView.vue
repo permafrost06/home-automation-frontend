@@ -46,12 +46,17 @@ if (!store.devices.length) {
 </template>
 
 <style lang="scss" scoped>
+.container-holder {
+  background: url("@/assets/bg/photo2.jpg") rgba(0, 0, 0, 0.7);
+  background-size: cover;
+  background-blend-mode: multiply;
+}
 .container {
   display: block;
   text-align: center;
 
   width: auto;
-  height: 80vh;
+  height: 85vh;
 }
 .devices-container {
   display: flex;
