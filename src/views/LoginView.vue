@@ -1,8 +1,11 @@
 <script setup lang="ts">
+import { useUserStore } from "@/store/user";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
+
+const user = useUserStore();
 
 const email = ref("");
 const password = ref("");
@@ -26,6 +29,7 @@ const handleLogIn = async () => {
 
     const json = await res.json();
     if (json.data.messages === "Login success.") {
+      user.username = email.value;
       router.push({ name: "Home" });
     }
   } catch (error) {

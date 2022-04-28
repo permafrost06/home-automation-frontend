@@ -1,7 +1,16 @@
+<script setup lang="ts">
+import { ref } from "vue";
+import { useUserStore } from "@/store/user";
+
+const user = useUserStore();
+
+const username = ref(user.username);
+</script>
+
 <template>
   <header>
     <h1>Welcome to Smart Home Automation</h1>
-    <p>username</p>
+    <p>{{ username }}</p>
   </header>
   <div class="container-holder">
     <div class="text-container">

@@ -4,6 +4,11 @@ import type { Device } from "@/models/device.model";
 import { v4 as uuidv4 } from "uuid";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { useUserStore } from "@/store/user";
+
+const user = useUserStore();
+
+const username = ref(user.username);
 
 const devicesStore = useDevicesStore();
 const router = useRouter();
@@ -30,7 +35,7 @@ const setDeviceType = (type: "television" | "fridge" | "fan" | "aircon") => {
 <template>
   <header>
     <h1>Add New Device</h1>
-    <p>username</p>
+    <p>{{ username }}</p>
   </header>
   <div class="container-holder">
     <div class="container">

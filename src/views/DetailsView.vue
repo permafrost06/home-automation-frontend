@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { useDevicesStore } from "@/store";
 import type { Device } from "@/models/device.model";
+import { ref } from "vue";
+import { useUserStore } from "@/store/user";
+
+const user = useUserStore();
+
+const username = ref(user.username);
 
 const devicesStore = useDevicesStore();
 
@@ -15,7 +21,7 @@ const readableTime = (time: Date | undefined) => {
 <template>
   <header>
     <h1>Device usage details</h1>
-    <p>username</p>
+    <p>{{ username }}</p>
   </header>
   <div class="container-holder">
     <div class="table-container">

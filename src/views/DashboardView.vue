@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { useDevicesStore } from "@/store/index";
 import DeviceComponent from "../components/DeviceComponent.vue";
+import { ref } from "vue";
+import { useUserStore } from "@/store/user";
+
+const user = useUserStore();
+
+const username = ref(user.username);
 
 const store = useDevicesStore();
 
@@ -32,7 +38,7 @@ if (!store.devices.length) {
 <template>
   <header>
     <h1>Dashboard</h1>
-    <p>username</p>
+    <p>{{ username }}</p>
   </header>
   <div class="container-holder">
     <div class="container">
