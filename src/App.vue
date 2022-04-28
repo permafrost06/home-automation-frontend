@@ -164,4 +164,62 @@ header {
     padding-right: 2rem;
   }
 }
+
+.container {
+  height: 100vh;
+  width: 30rem;
+
+  margin-inline: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-holder {
+  width: auto;
+
+  padding: 1rem 2rem;
+  margin-inline: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--color-light-1);
+
+  border-radius: 1rem;
+
+  h1 {
+    margin-inline: auto;
+  }
+
+  button {
+    display: block;
+  }
+}
+
+.fields-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  input {
+    display: block;
+    margin: 0.25rem auto;
+  }
+}
+
+@media (max-width: 428px) {
+  .login,
+  .signup {
+    width: auto;
+  }
+
+  .form-holder {
+    padding: 0.5rem 1.5rem;
+  }
+}
 </style>
