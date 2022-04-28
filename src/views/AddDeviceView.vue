@@ -99,7 +99,11 @@ const setDeviceType = (type: "television" | "fridge" | "fan" | "aircon") => {
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.container {
+  height: 80vh;
+}
+
 .types-holder {
   display: flex;
 
